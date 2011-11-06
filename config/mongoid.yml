@@ -1,0 +1,23 @@
+defaults: &defaults
+  host: localhost
+  port: 27017
+  database: mongo_viz_development
+
+development:
+  <<: *defaults
+
+test:
+  database: mongo_viz_test
+  <<: *defaults
+
+integration:
+  database: mongo_viz_integration
+  <<: *defaults
+
+staging:
+  database: mongo_viz_staging
+  <<: *defaults
+
+production:
+  database: mongo_viz_production
+  <<: *defaults
