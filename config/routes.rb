@@ -1,7 +1,8 @@
 MongoProcessing::Application.routes.draw do
-  resources :connections
 
-  resources :databases
+  resources :collections, :only => [:index, :show]
+  resources :documents, :only => [:index, :show]
+  
   root :to => 'application#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

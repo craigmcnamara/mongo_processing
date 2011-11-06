@@ -1,10 +1,11 @@
-class Node extends BasicGraphObject{
+class Node extends BasicMongoDbObject{
   //Node geometry
   int X = 0;
   int Y = 0;
-  int margin = 10;
-  int width = 120;
-  int height = 90;
+  String info;
+  int margin = 20;
+  int width = 320;
+  int height = 190;
   int radius = 5;
   String name = "Node";
 
@@ -12,9 +13,10 @@ class Node extends BasicGraphObject{
   ArrayList incomingEdges = new ArrayList();
   ArrayList outgoingEdges = new ArrayList();
 
-  Node(x, y){
+  Node(x, y, json){
     X = x;
     Y = y;
+    info = json;
   }
 
   void draw(){
@@ -35,8 +37,15 @@ class Node extends BasicGraphObject{
     rect( X, Y, width, height, radius );
 
     fill(0, 255, 255, 255);
+
+    String str = "";
+    for(var i in info){
+      str += "{ " + i + " : "  + info[i] + " }\n";
+    }
+    text(str, X + margin, Y + margin, width, height);
+
     String s = "(" + (int)X + " : " + (int)Y + ")";
-    text(s, X + margin, Y + margin, width, height);
+    text(s, X + width * .75, Y + height * .85, width, height);
   }
 
   void updateGeometry(){
@@ -44,11 +53,14 @@ class Node extends BasicGraphObject{
     maxY = Y + height;
     mouseOver = (mouseX > X) && (mouseX < maxX) && (mouseY > Y) && (mouseY < maxY);
 
-    radius = radius + sin( frameCount / 4 );
+    radius = radius + sin( frameCount /  8);
     if(mouseOver && mousePressed == true){
       X+=(mouseX-midX());
       Y+=(mouseY-midY());
     }
+    // Drift in space
+    // X+=cos(frameCount / drift());
+    // Y+=cos(frameCount / drift());
   }
 
   int midX(){
@@ -57,6 +69,10 @@ class Node extends BasicGraphObject{
 
   int midY(){
     return (Y + (width / 2) - margin);
+  }
+
+  void mouseReleased(){
+    // alert(name);
   }
 
 }

@@ -1,6 +1,6 @@
 // Global variables
 var delay = 4;
-var graph = new Graph();
+var graph = new MongoDb();
 
 // Setup the Processing Canvas
 void setup(){
@@ -14,7 +14,7 @@ void draw(){
   // Fill canvas grey
   background( 100 );
 
-  // Draw the object Graph
+  // Draw the object MongoDb
   graph.draw();
 }
 

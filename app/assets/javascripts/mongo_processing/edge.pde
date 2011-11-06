@@ -1,4 +1,4 @@
-class Edge extends BasicGraphObject{
+class Edge extends BasicMongoDbObject{
   Node o;
   Node t;
   String name = "Edge";
@@ -28,6 +28,10 @@ class Edge extends BasicGraphObject{
   
   boolean is_between(a,b,c){
     return abs(distance(a,c) + distance(c,b) - distance(a,b)) < 5;
+  }
+  
+  void mouseReleased(){
+    alert(name);
   }
   
 }

@@ -1,7 +1,7 @@
 defaults: &defaults
   host: localhost
   port: 27017
-  database: mongo_viz_development
+  database: log_center
 
 development:
   <<: *defaults

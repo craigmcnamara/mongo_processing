@@ -1,11 +1,15 @@
-class BasicGraphObject{
+class BasicMongoDbObject{
   //Variables
-
+  var documents;
   boolean mouseOver = false;
   boolean highlight = false;
 
-  BasicGraphObject(){
+  BasicMongoDbObject(){
 
+  }
+  
+  float drift(){
+    return random(-25,25);
   }
 
   // Mouse Events
@@ -21,9 +25,9 @@ class BasicGraphObject{
   void mouseClicked(){
     // Right Click
     if(mouseButton == 39){
-      alert("Close the records")
+      // alert("Close the records")
     }else{
-      alert("Open the records")
+      // alert("Open the records")
     }
   }
 
