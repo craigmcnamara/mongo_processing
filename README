@@ -1,4 +1,4 @@
 == Welcome to Mongo Processing
 
-MongoProcessing is a visualization for mongo databases written in Rails and Processing.js
+A MongoDB visualization written in Rails 3.1 and Processing.js using the Asset Pipeline.
 
